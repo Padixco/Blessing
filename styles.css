@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-image: url('https://cdn.pixabay.com/photo/2017/01/04/00/50/fireworks-1946694_1280.jpg');
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1528539090768-2e00b1ae011b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fGNlbGVicmF0aW9ufGVufDB8fHx8MTY5NzU4MzcyNQ&ixlib=rb-1.2.1&q=80&w=1080');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -10,22 +12,22 @@ body {
 
 h1 {
     text-align: center;
-    color: #ff69b4;
-    margin-top: 20px;
-    font-size: 2.5rem;
+    color: #ff4081;
+    margin-top: 15px;
+    font-size: 2.2rem;
     animation: bounce 2s infinite alternate;
 }
 
 .message {
-    max-width: 600px;
+    max-width: 550px;
     margin: 20px auto;
     text-align: center;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .popup {
@@ -37,7 +39,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
     font-size: 2rem;
     flex-direction: column;
