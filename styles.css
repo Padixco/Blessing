@@ -1,38 +1,42 @@
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
-    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fHRlZGR5JTIwYmVhcnN8ZW58MHx8fHwxNjY4MzgwMjU1&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+    background: url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
     padding: 20px
+    max-width: 600px;
+    width: 90%
+    background: rgba(0, 0, 0, 0.5)
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
 }
 
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.message {
+.message h1 {
     font-size: 2rem;
+    color: #f9a8d4
+    margin-bottom: 15px
+}
+
+.message p{
+    font-size: 1.2rem;
     color: #fff;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    border-radius:20px;
-    max-width: 90%;
-    line-height: 1.5;
+    line-height: 1.6;
     word-wrap: break-word;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .balloons {
@@ -53,24 +57,20 @@ h1 {
     animation: rise 7s infinite ease-in-out;
 }
 
-@keyframes rise {
-    0% { transform: translateY(100vh); }
-    100% { transform: translateY(-120vh); }
+@media (max-width: 600px) {
+    .message h1 {
+        font-size: 1.8rem;
+    }
+    .message p {
+        font-size: 1rem;
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.container{
-    animation: fadeIn 2s ease-in-out;
-}
-
-@media (max-width: 600px) {
-    .message {
-        font-size: 1.5rem;
-        padding: 20px;
+    from {
+        opacity: 0; 
     }
-}    
+    to {
+        opacity: 1; 
+    }
 }
