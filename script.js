@@ -1,40 +1,65 @@
-// Start confetti and balloons when the page loads
-window.onload = function() {
-  alert("🎉 Happy Birthday, Angel! 🎉")
-  startConfetti();
-  playBalloons();
-  const music = document.getElementById('backgroundMusic');
-  music.muted = false; // Unmute the audio once the page loads
-  music.play(); // Ensure playback starts
+const canvas = document.getElementById('confettiCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const confettiParticles = [];
+const content = document.getElementById('content');
+const music = document.getElementById('birthdayMusic');
+
+// Popup function to ask if it's Blessing
+window.onload = function () {
+    const isBlessing = confirm("Are you Blessing? 🎂");
+
+    if (isBlessing) {
+        content.classList.remove('hidden');
+        music.play();
+        createConfetti();
+        animateConfetti();
+    } else {
+        alert("Oops! This surprise is for Blessing only. 🎉");
+    }
 };
 
-function createConfetti() {
-    const colors = ['#FF0B6D', '#FFB800', '#1BFF00', '#00D6FF', '#FF00E1'];
-    const confettiCount = 100;
+// Confetti creation
+class Confetti {
+    constructor(x, y, size, color) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.color = color;
+        this.speedY = Math.random() * 5 + 2;
+    }
 
-    for (let i = 0; i < confettiCount; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.position = 'absolute';
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.width = Math.random() * 10 + 'px';
-        confetti.style.height = Math.random() * 10 + 'px';
-        confetti.style.left = Math.random() * window.innerWidth + 'px';
-        confetti.style.top = Math.random() * window.innerHeight + 'px';
-        confetti.style.opacity = Math.random();
-        document.body.appendChild(confetti);
+    update() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) {
+            this.y = 0;
+            this.x = Math.random() * canvas.width;
+        }
+    }
 
-        setTimeout(() => {
-            confetti.style.transform = `translateY(${Math.random() * 100 + 50}px)`;
-            confetti.style.transition = 'transform 3s ease-in';
-            confetti.style.opacity = 0;
-        }, 100);
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
     }
 }
 
-// Trigger confetti on page load
-window.onload = function () {
-    createConfetti();
-};
+function createConfetti() {
+    for (let i = 0; i < 100; i++) {
+        const size = Math.random() * 8 + 4;
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confettiParticles.push(new Confetti(x, y, size, color));
+    }
+}
 
+function animateConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiParticles.forEach((confetti) => {
+        confetti.update();
+        confetti.draw();
+    });
+    requestAnimationFrame(animateConfetti);
 }
