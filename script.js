@@ -1,6 +1,7 @@
 document.getElementById('yesButton').addEventListener('click', () => {
     document.querySelector('.popup').classList.add('hidden');
     document.getElementById('mainContent').classList.remove('hidden');
+    document.getElementById('birthdayMusic').play();
     startConfetti();
 });
 
@@ -10,13 +11,13 @@ function startConfetti() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const confettiPieces = Array.from({ length: 300 }, () => ({
+    const confettiPieces = Array.from({ length: 200 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        radius: Math.random() * 5 + 2,
-        color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-        dx: Math.random() * 2 - 1,
-        dy: Math.random() * 2 + 1,
+        radius: Math.random() * 3 + 1,
+        color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+        dx: Math.random() * 1 - 0.5,
+        dy: Math.random() * 1 + 1,
     }));
 
     function drawConfetti() {
