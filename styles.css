@@ -1,59 +1,30 @@
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-image: url('https://images.pexels.com/photos/1921652/pexels-photo-1921652.jpeg'); /* Festive background image */
-    background-size: cover;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    text-align: center;
     overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=1200&q=60') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
+.hidden {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.message {
+    margin: 20px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
+    border-radius: 15px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
 }
-
-.message h1 {
-    font-size: 3.5em;
-    animation: bounce 2s infinite;
-}
-
-.message p {
-    font-size: 1.6em;
-    margin: 20px 0;
-}
-
-/* Bouncing animation */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-30px);
-    }
-    60% {
-        transform: translateY(-15px);
-    }
-}
-
-.confetti {
-    position: absolute;
-    opacity: 0.7;
-    transition: all 0.5s;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    .message h1 {
-        font-size: 2.5em;
-    }
-    
-    .message p {
-        font-size: 1.2em;
-    }
-}
-
