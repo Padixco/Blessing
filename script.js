@@ -8,41 +8,33 @@ window.onload = function() {
   music.play(); // Ensure playback starts
 };
 
-// Confetti effect
-function startConfetti() {
-  const confettiColors = ['#ff9a9e', '#fad0c4', '#fbc2eb', '#a18cd1'];
-  for (let i = 0; i < 150; i++) {
-    let confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    confetti.style.backgroundColor =
-      confettiColors[Math.floor(Math.random() * confettiColors.length)];
-    document.body.appendChild(confetti);
+function createConfetti() {
+    const colors = ['#FF0B6D', '#FFB800', '#1BFF00', '#00D6FF', '#FF00E1'];
+    const confettiCount = 100;
 
-    confetti.animate(
-            [
-        { transform: 'translateY(0)' },
-        { transform: 'translateY(100vh)' }
-            ],
-      {
-        duration: Math.random() * 3000 + 2000,
-        iterations: Infinity
-      }
-    );
-  }
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.position = 'absolute';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = Math.random() * 10 + 'px';
+        confetti.style.height = Math.random() * 10 + 'px';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.top = Math.random() * window.innerHeight + 'px';
+        confetti.style.opacity = Math.random();
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.style.transform = `translateY(${Math.random() * 100 + 50}px)`;
+            confetti.style.transition = 'transform 3s ease-in';
+            confetti.style.opacity = 0;
+        }, 100);
+    }
 }
 
-// Balloon animation
-function playBalloons() {
-  const balloonContainer = document.querySelector('.balloons');
-  const colors = ['#ff7eb9', '#ff65a3', '#7afcff', '#feff9c'];
+// Trigger confetti on page load
+window.onload = function () {
+    createConfetti();
+};
 
-  for (let i = 0; i < 30; i++) {
-    let balloon = document.createElement('div');
-    balloon.className = 'balloon';
-    balloon.style.backgroundColor =
-      colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = `${Math.random() * 100}%`;
-    balloon.style.animationDuration = `${Math.random() * 2 + 4}s`;
-    balloonContainer.appendChild(balloon);
-  }
 }
