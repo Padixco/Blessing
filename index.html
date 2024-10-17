@@ -2,38 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
-    </head>
-    <title>🎉 Happy Birthday 🎉</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Blessing! 🎉</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="balloons"></div>
-        <h1>🎂 Happy Birthday, Blessing 🎂</h1>
+    <audio id="birthdayMusic" loop>
+        <source src="happy-birthday-song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="content" class="hidden">
+        <h1>🎂 Happy Birthday, Blessing! 🎂</h1>
         <p class="message">
-            At 12am, the world pauses just to honor *YOU*,  
-            the girl who carries the brightest smile and the sweetest heart.  
-            You’ve touched lives in ways you may never fully realize,  
-            leaving sparkles of joy wherever you go. ✨  
-            I feel lucky to know someone as amazing as you. 💖
-        </p>   
-        <p>
-            Your kindness is like magic that turns ordinary moments into precious memories.  
-            And today is one of those days—a day to celebrate everything that makes you, *you.*  
-            No words are enough to capture how special you are.  
-            But if I had to try, I'd say you're the kind of person the world doesn’t get enough of. 🌸
-        </p>    
-        <p>
-            Here’s wishing you endless laughter, unforgettable adventures, and a heart  
-            full of dreams that come true—one magical moment at a time. 🎈  
-            I hope this year is everything you’ve dreamed of and more. 💕  
-            Happy Birthday, Angel. You’re one in a million.
+            **12am is here**, and guess what? It’s finally the day the world celebrates YOU, Blessing! 🕛🌙<br><br>
+
+            You know what’s wild? Somehow, you manage to be cooler than a midnight breeze and warmer than hot chocolate on a rainy day – **how do you do that?!** ☕❄️💖<br><br>
+
+            I hope today feels like a never-ending parade of cake, laughter, and random people singing “Happy Birthday” off-key. 🎂🎈<br><br>
+
+            Blessing, you’ve got that rare kind of magic – the one that makes everyone around you feel lighter and brighter. 🌟 Whether you’re cracking silly jokes or just being your amazing self, life with you feels like a never-ending adventure! 🚀💫<br><br>
+
+            **Eat all the cake you can and dance your heart out today!** 💃🕺<br><br>
+
+            **Happy Birthday once again, Blessing!** 📱🎉
         </p>
     </div>
-    <audio id="backgroundMusic" src="happy-birthday-song.mp3" autoplay loop muted></audio>
+
+    <canvas id="confettiCanvas"></canvas>
+
     <script src="script.js"></script>
 </body>
 </html>
