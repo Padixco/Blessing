@@ -1,41 +1,55 @@
 body {
-    background-image: url('https://images.unsplash.com/photo-1514972002777-4e1f97e9b1af');
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1511961892538-1132448c3c35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGJpcnRoZGF5JTIwY29sb3J8ZW58MHx8fHwxNjEyNzc2Njc0&ixlib=rb-1.2.1&q=80&w=1080');
     background-size: cover;
     background-position: center;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    overflow: hidden;
 }
 
 .container {
-    padding: 50px;
-    margin: 20px auto;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 15px;
-    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    color: white;
 }
 
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .message {
     font-size: 1.5em;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.confetti {
+#startButton {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#startButton:hover {
+    background-color: #ff79b0;
+}
+
+#confetti {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #FFEB3B;
-    opacity: 0.8;
-    animation: fall 5s linear;
-}
-
-@keyframes fall {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
 }
