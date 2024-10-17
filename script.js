@@ -1,46 +1,39 @@
-document.getElementById("startButton").addEventListener("click", function() {
-    const name = prompt("Are you Blessing? (Yes/No)");
-    if (name && name.toLowerCase() === "yes") {
-        document.getElementById("birthdayMusic").play();
-        startConfetti();
-    } else {
-        alert("That's okay! Have a great day!");
-    }
+document.getElementById('yesButton').addEventListener('click', () => {
+    document.querySelector('.popup').classList.add('hidden');
+    document.getElementById('mainContent').classList.remove('hidden');
+    startConfetti();
 });
 
 function startConfetti() {
-    document.getElementById("confetti").style.display = "block";
-    var confettiCanvas = document.createElement("canvas");
-    confettiCanvas.width = window.innerWidth;
-    confettiCanvas.height = window.innerHeight;
-    document.getElementById("confetti").appendChild(confettiCanvas);
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    var ctx = confettiCanvas.getContext("2d");
-    var particles = [];
-    var colors = ["#ff0", "#0f0", "#00f", "#f00", "#ff00ff", "#00ffff"];
+    const confettiPieces = Array.from({ length: 300 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 5 + 2,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+        dx: Math.random() * 2 - 1,
+        dy: Math.random() * 2 + 1,
+    }));
 
-    for (var i = 0; i < 100; i++) {
-        particles.push({
-            x: Math.random() * confettiCanvas.width,
-            y: Math.random() * confettiCanvas.height,
-            radius: Math.random() * 5 + 5,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            rotation: Math.random() * 2 * Math.PI,
-            speed: Math.random() * 5 + 2
-        });
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-        particles.forEach(function(p) {
-            p.y += p.speed;
-            p.x += Math.sin(p.rotation) * 0.5;
+    function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confettiPieces.forEach(p => {
             ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fillStyle = p.color;
             ctx.fill();
+            p.x += p.dx;
+            p.y += p.dy;
+
+            if (p.y > canvas.height) p.y = 0;
+            if (p.x > canvas.width) p.x = 0;
         });
-        requestAnimationFrame(animate);
+        requestAnimationFrame(drawConfetti);
     }
-    animate();
+
+    drawConfetti();
 }
