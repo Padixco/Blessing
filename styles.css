@@ -4,30 +4,32 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1528539090768-2e00b1ae011b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fGNlbGVicmF0aW9ufGVufDB8fHx8MTY5NzU4MzcyNQ&ixlib=rb-1.2.1&q=80&w=1080');
+    background-image: url('https://cdn.pixabay.com/photo/2015/12/26/13/52/balloons-1106326_1280.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     overflow: hidden;
 }
 
 h1 {
     text-align: center;
     color: #ff4081;
-    margin-top: 15px;
-    font-size: 2.2rem;
+    margin-top: 10px;
+    font-size: 2rem;
     animation: bounce 2s infinite alternate;
+    padding: 0 10px;
 }
 
 .message {
-    max-width: 550px;
-    margin: 20px auto;
+    margin: 15px auto;
     text-align: center;
     color: white;
     font-size: 1rem;
-    line-height: 1.6;
-    padding: 15px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 10px;
 }
 
 .popup {
@@ -41,8 +43,22 @@ h1 {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
     flex-direction: column;
+    padding: 15px;
+}
+
+.balloons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.balloon, .teddy {
+    width: 70px;
+    margin: 5px;
+    animation: float 4s ease-in-out infinite alternate;
 }
 
 .hidden {
@@ -55,5 +71,14 @@ h1 {
     }
     to {
         transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-15px);
     }
 }
