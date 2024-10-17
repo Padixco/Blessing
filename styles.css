@@ -15,7 +15,7 @@ h1 {
     text-align: center;
     color: #ff4081;
     margin-top: 10px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     animation: bounce 2s infinite alternate;
     padding: 0 10px;
 }
@@ -24,7 +24,7 @@ h1 {
     margin: 15px auto;
     text-align: center;
     color: white;
-    font-size: 0.9rem; /* Reduced font size for mobile */
+    font-size: 0.5rem; /* Reduced font size for mobile */
     line-height: 1.5;
     max-width: 90%;
     background: rgba(0, 0, 0, 0.7);
