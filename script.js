@@ -1,5 +1,6 @@
 // Start confetti and balloons when the page loads
 window.onload = function() {
+  alert("🎉 Happy Birthday, Angel! 🎉")
   startConfetti();
   playBalloons();
   const music = document.getElementById('backgroundMusic');
